@@ -1,9 +1,8 @@
 # JPacman
 
-![Build Status](https://github.com/nopparwut2545/jpacman/actions/workflows/jpacman.yml/badge.svg) 
+![Build Status](https://github.com/jtwyoyo/jpacman/actions/workflows/myworkflow.yml/badge.svg) 
 ![Coverage](.github/badges/jacoco.svg)
 ![Branches](.github/badges/branches.svg)
-
 
 ## About
 
@@ -39,4 +38,3 @@ Main contributors:
 3. To run the test suite and static analysis tools: `./gradlew check`
     1. For tests only run `./gradlew test`
     2. For static analysis tools only run `./gradlew staticAnalysis`
-	 

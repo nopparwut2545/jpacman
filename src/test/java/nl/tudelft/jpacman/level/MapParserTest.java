@@ -76,6 +76,9 @@ public class MapParserTest {
         Mockito.verify(boardFactory, Mockito.times(expectedCreateGround)).createGround();
     }
 
+    /**
+     * Test for the parseMap method with an incorrectly formatted map.
+     */
     @Test
     public void testParseMapWrong1() {
         MockitoAnnotations.initMocks(this);
@@ -85,8 +88,8 @@ public class MapParserTest {
         ArrayList<String> map = new ArrayList<>();
         map.add("########");
         map.add("#P    G#");
-        map.add("######"); // Length Error
-        map.add("#P ! G#"); // Invalid Error '!'
+        map.add("####"); // Inconsistent length
+        map.add("#P @ G#"); // Invalid character '@'
 
         PacmanConfigurationException thrown = Assertions.assertThrows(
             PacmanConfigurationException.class, () -> mapParser.parseMap(map)
@@ -95,4 +98,5 @@ public class MapParserTest {
         String expectedErrorMessage = "Input text lines are not of equal width.";
         Assertions.assertEquals(expectedErrorMessage, thrown.getMessage());
     }
+
 }

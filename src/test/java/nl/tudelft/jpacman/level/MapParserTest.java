@@ -92,7 +92,7 @@ public class MapParserTest {
             PacmanConfigurationException.class, () -> mapParser.parseMap(map)
         );
 
-        String expectedErrorMessage = "Input text lines are not of equal length.";
+        String expectedErrorMessage = "Input text lines are not of equal width.";
         Assertions.assertEquals(expectedErrorMessage, thrown.getMessage());
     }
 }

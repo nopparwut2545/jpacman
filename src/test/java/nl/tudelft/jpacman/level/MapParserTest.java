@@ -88,7 +88,7 @@ public class MapParserTest {
         ArrayList<String> map = new ArrayList<>();
         map.add("########");
         map.add("#P    G#");
-        map.add("######"); // Inconsistent length
+        map.add("#######"); // Inconsistent length
         map.add("#P ! G#"); // Invalid character '!'
 
         PacmanConfigurationException thrown = Assertions.assertThrows(

@@ -75,4 +75,24 @@ public class MapParserTest {
         Mockito.verify(boardFactory, Mockito.times(expectedCreatedWall)).createWall();
         Mockito.verify(boardFactory, Mockito.times(expectedCreateGround)).createGround();
     }
+
+    @Test
+    public void testParseMapWrong1() {
+        MockitoAnnotations.initMocks(this);
+        assertNotNull(boardFactory);
+        assertNotNull(levelFactory);
+        MapParser mapParser = new MapParser(levelFactory, boardFactory);
+        ArrayList<String> map = new ArrayList<>();
+        map.add("########");
+        map.add("#P    G#");
+        map.add("######"); // Length Error
+        map.add("#P ! G#"); // Invalid Error '!'
+
+        PacmanConfigurationException thrown = Assertions.assertThrows(
+            PacmanConfigurationException.class, () -> mapParser.parseMap(map)
+        );
+
+        String expectedErrorMessage = "Input text lines are not of equal length.";
+        Assertions.assertEquals(expectedErrorMessage, thrown.getMessage());
+    }
 }
